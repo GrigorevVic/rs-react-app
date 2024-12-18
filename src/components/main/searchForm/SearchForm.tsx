@@ -3,7 +3,7 @@ import { Component } from 'react';
 
 interface SearchState {
   search: string;
-  isError: boolean;
+  hasError: boolean;
 }
 
 interface SearchProps {
@@ -16,7 +16,7 @@ export class SearchForm extends Component<SearchProps, SearchState> {
     const savedSearch = localStorage.getItem('searchString') || '';
     this.state = {
       search: savedSearch,
-      isError: false,
+      hasError: false,
     };
     this.props.handleSearch(this.state.search);
   }
@@ -32,12 +32,12 @@ export class SearchForm extends Component<SearchProps, SearchState> {
   };
 
   getError = () => {
-    this.setState({ isError: true });
+    this.setState({ hasError: true });
   };
 
   render() {
-    const { isError } = this.state;
-    if (isError) {
+    const { hasError } = this.state;
+    if (hasError) {
       throw new Error('An error has occurred');
     }
     return (
