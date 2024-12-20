@@ -1,6 +1,6 @@
 import './styles.css';
 import { useState } from 'react';
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 interface SearchProps {
   handleSearch: (search: string) => void;

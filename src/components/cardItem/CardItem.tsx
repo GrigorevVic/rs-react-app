@@ -1,5 +1,5 @@
 import './styles.css';
-import { People } from '../../../types/types';
+import { People } from '../../types/types';
 
 interface PeopleItem {
   people: People;

@@ -1,10 +1,10 @@
-import { SearchForm } from './searchForm/SearchForm';
-import { CardList } from './cardList/CardList';
+import { SearchForm } from '../../components/searchForm/SearchForm';
+import { CardList } from '../../components/cardList/CardList';
 import { getData } from '../../api/api';
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-export function Main() {
+export function MainPage() {
   const [results, setResults] = useState([]);
   const [{ isLoading }, setLoading] = useState({ isLoading: true });
   const [{ errorMsg }, setErrorMsg] = useState({ errorMsg: '' });

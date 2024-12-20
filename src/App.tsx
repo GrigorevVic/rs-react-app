@@ -1,17 +1,21 @@
 import './App.css';
-import { Header } from './components/header/Header';
-import { Footer } from './components/footer/Footer';
-import { Main } from './components/main/Main';
-import { ErrorBoundary } from './components/ErrorBoundary';
+import { Route, Routes } from 'react-router-dom';
+import { NotFoundPage } from './pages/404/notFoundPage';
+import { Layout } from './components/layout/Layout';
+import { MainPage } from './pages/main/MainPage';
+import { ErrorBoundary } from './components/errorBoundary/ErrorBoundary';
 
 export function App() {
   return (
     <>
-      <Header />
       <ErrorBoundary>
-        <Main />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<MainPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
       </ErrorBoundary>
-      <Footer />
     </>
   );
 }

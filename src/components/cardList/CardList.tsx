@@ -1,6 +1,6 @@
 import './styles.css';
 import { CardItem } from '../cardItem/CardItem';
-import { People } from '../../../types/types';
+import { People } from '../../types/types';
 
 interface PeopleList {
   peopleList: People[];
