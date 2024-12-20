@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   border: 1px solid var(--border-shadow);
   border-radius: 20px;
   background-color: var(--transparent-dark);
@@ -29,4 +30,20 @@
   font-size: 2rem;
   padding: 10px;
   color: rgb(232, 246, 248);
+}
+
+.wrapper-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10%;
+
 }

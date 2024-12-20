@@ -6,4 +6,5 @@ export interface People {
   gender: string;
   skin_color: string;
   eye_color: string;
+  url: string;
 }
