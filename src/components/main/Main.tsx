@@ -2,6 +2,7 @@ import { SearchForm } from './searchForm/SearchForm';
 import { CardList } from './cardList/CardList';
 import { getData } from '../../api/api';
 import { useState, useEffect } from 'react';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export function Main() {
   const [results, setResults] = useState([]);
@@ -19,7 +20,7 @@ export function Main() {
     }
   };
 
-  const savedSearch = localStorage.getItem('searchString') || '';
+  const [savedSearch] = useLocalStorage();
   useEffect(() => {
     handleSearch(savedSearch);
   }, [savedSearch]);

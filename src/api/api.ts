@@ -1,3 +1,5 @@
+/*
+
 import { People } from '../types/types';
 
 const url = 'http://localhost:3000';
@@ -16,8 +18,8 @@ export const getData = async (search: string) => {
   );
   return filtred;
 };
+*/
 
-/*
 const url = 'https://swapi.py4e.com/api';
 
 export const getData = async (search: string) => {
@@ -26,7 +28,5 @@ export const getData = async (search: string) => {
     throw new Error('Error fetching data');
   }
   const result = await response.json();
-  console.log(result.results);
   return result.results;
 };
-*/

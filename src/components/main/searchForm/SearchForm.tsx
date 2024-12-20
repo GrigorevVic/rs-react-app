@@ -1,23 +1,23 @@
 import './styles.css';
 import { useState } from 'react';
+import { useLocalStorage } from '../../../hooks/useLocalStorage';
 
 interface SearchProps {
   handleSearch: (search: string) => void;
 }
 
 export function SearchForm(props: SearchProps) {
-  const savedSearch = localStorage.getItem('searchString') || '';
-  const [search, setSearch] = useState({ search: savedSearch });
+  const [savedSearch, setSavedSearch] = useLocalStorage();
   const [hasError, setError] = useState({ hasError: false });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearch({ search: event.target.value.trim() });
+    setSavedSearch(event.target.value.trim());
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    localStorage.setItem('searchString', search.search);
-    props.handleSearch(search.search);
+    setSavedSearch(savedSearch);
+    props.handleSearch(savedSearch);
   };
 
   const getError = () => {
@@ -33,7 +33,7 @@ export function SearchForm(props: SearchProps) {
         className="search-input"
         type="text"
         placeholder="Enter a character name..."
-        value={search.search}
+        value={savedSearch}
         onChange={handleChange}
       />
       <button type="submit" className="search-button">
