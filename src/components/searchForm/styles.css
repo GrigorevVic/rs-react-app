@@ -11,9 +11,7 @@
   height: 30px;
 }
 
-.search-button,
-.error-button,
-.refresh-button {
+.btn {
   width: 80px;
   height: 33px;
   cursor: pointer;

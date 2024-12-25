@@ -8,3 +8,14 @@ export interface People {
   eye_color: string;
   url: string;
 }
+
+export interface ApiResponse {
+  next: null | string;
+  previous: null | string;
+  results: [];
+}
+
+export interface PaginationState {
+  previous: string | null;
+  next: string | null;
+}

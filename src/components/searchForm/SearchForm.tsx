@@ -36,10 +36,10 @@ export function SearchForm(props: SearchProps) {
         value={savedSearch}
         onChange={handleChange}
       />
-      <button type="submit" className="search-button">
+      <button type="submit" className="btn">
         Search
       </button>
-      <button type="submit" className="error-button" onClick={getError}>
+      <button type="submit" className="btn" onClick={getError}>
         Error
       </button>
     </form>

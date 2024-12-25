@@ -30,11 +30,7 @@ export class ErrorBoundary extends React.Component<Props, Error> {
       return (
         <div className="error">
           <h2>Something went wrong.</h2>
-          <button
-            className="refresh-button"
-            type="submit"
-            onClick={this.handleRefresh}
-          >
+          <button className="btn" type="submit" onClick={this.handleRefresh}>
             Refresh
           </button>
         </div>
