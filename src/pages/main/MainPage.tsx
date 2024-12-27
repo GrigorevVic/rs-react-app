@@ -6,12 +6,18 @@ import { useState, useEffect } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { Pagination } from '../../components/pagination/Pagination';
 import { ApiResponse, PaginationState } from '../../types/types';
+import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export function MainPage() {
+  const navigate = useNavigate();
   const [response, setResponse] = useState<ApiResponse>();
+  const [searchParams] = useSearchParams();
+  const currentPage = searchParams.get('page') ?? '1';
   const [paginationState, setPaginationState] = useState<PaginationState>({
     previous: null,
     next: '2',
+    currentPage: currentPage,
   });
   const [{ isLoading }, setLoading] = useState({ isLoading: true });
   const [{ errorMsg }, setErrorMsg] = useState({ errorMsg: '' });
@@ -21,6 +27,7 @@ export function MainPage() {
       setLoading({ isLoading: true });
       const response = await getSearchData(search);
       setResponse(response);
+      navigate(`?page=${currentPage}`, { replace: true });
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
     } finally {
@@ -33,7 +40,12 @@ export function MainPage() {
       setLoading({ isLoading: true });
       const response = await getCharacterListData(page);
       setResponse(response);
-      setPaginationState({ previous: response.previous, next: response.next });
+      setPaginationState({
+        previous: response.previous,
+        next: response.next,
+        currentPage: paginationState.currentPage,
+      });
+      navigate(`?page=${page}`, { replace: true });
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
     } finally {
@@ -43,8 +55,13 @@ export function MainPage() {
 
   const [savedSearch] = useLocalStorage();
   useEffect(() => {
-    handleSearch(savedSearch);
-  }, [savedSearch]);
+    if (searchParams.get('search')) {
+      handleSearch(savedSearch);
+    }
+    if (searchParams.get('page') !== null) {
+      handlePagination(Number(searchParams.get('page')));
+    }
+  });
 
   if (errorMsg) {
     return <p className="error">Error:{errorMsg}</p>;

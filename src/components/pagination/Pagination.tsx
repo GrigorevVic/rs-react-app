@@ -9,7 +9,9 @@ interface handlePaginationProps {
 export function Pagination(props: handlePaginationProps) {
   const previousPage = props.paginationState.previous;
   const nextPage = props.paginationState.next;
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(
+    Number(props.paginationState.currentPage)
+  );
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
     props.handlePagination(Number(nextPage?.slice(-1)));

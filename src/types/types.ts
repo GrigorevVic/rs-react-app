@@ -18,4 +18,5 @@ export interface ApiResponse {
 export interface PaginationState {
   previous: string | null;
   next: string | null;
+  currentPage: string;
 }

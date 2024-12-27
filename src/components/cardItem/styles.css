@@ -13,12 +13,14 @@
   color: rgb(197, 220, 240);
   margin: 6px;
   transition: 0.5s;
+  opacity: 0.8;
 }
 
 .card-container:hover {
   background-color: var(--transparent-dark-hover);
   box-shadow: 3px 3px 3px 3px var(--border-shadow);
   transition: 0.5s;
+  opacity: 1;
 }
 
 .card-container p:not(:first-child) {

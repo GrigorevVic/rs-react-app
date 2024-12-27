@@ -11,7 +11,8 @@ export function App() {
       <ErrorBoundary>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<MainPage />} />
+            <Route path="/" element={<MainPage />} />
+            <Route path="/:page" element={<MainPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
