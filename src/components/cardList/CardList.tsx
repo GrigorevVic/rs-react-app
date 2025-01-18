@@ -1,10 +1,6 @@
 import './styles.css';
 import { CardItem } from '../cardItem/CardItem';
-import { People } from '../../types/types';
-
-interface PeopleList {
-  peopleList?: People[];
-}
+import { People, PeopleList } from '../../types/types';
 
 export function CardList({ peopleList }: PeopleList) {
   return (

@@ -1,34 +1,30 @@
-import { useState } from 'react';
-import { PaginationState } from '../../types/types';
+import { ApiResponse } from '../../types/types';
 
 interface handlePaginationProps {
   handlePagination: (page: number) => void;
-  paginationState: PaginationState;
+  response: ApiResponse | undefined;
 }
 
 export function Pagination(props: handlePaginationProps) {
-  const previousPage = props.paginationState.previous;
-  const nextPage = props.paginationState.next;
-  const [currentPage, setCurrentPage] = useState(
-    Number(props.paginationState.currentPage)
-  );
+  const { previous, next } = props.response as ApiResponse;
+  const currentPage = next
+    ? Number(next?.slice(-1)) - 1
+    : Number(previous?.slice(-1)) + 1;
   const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
-    props.handlePagination(Number(nextPage?.slice(-1)));
+    props.handlePagination(Number(next?.slice(-1)));
   };
 
   const handlePrevPage = () => {
-    setCurrentPage(currentPage - 1);
-    props.handlePagination(Number(previousPage?.slice(-1)));
+    props.handlePagination(Number(previous?.slice(-1)));
   };
 
   return (
     <div className="btn-container">
-      <button className="btn" onClick={handlePrevPage} disabled={!previousPage}>
+      <button className="btn" onClick={handlePrevPage} disabled={!previous}>
         Prev
       </button>
-      <div>Page: {currentPage}</div>
-      <button className="btn" onClick={handleNextPage} disabled={!nextPage}>
+      {(previous || next) && <div>Page: {currentPage}</div>}
+      <button className="btn" onClick={handleNextPage} disabled={!next}>
         Next
       </button>
     </div>

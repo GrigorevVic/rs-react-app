@@ -5,81 +5,69 @@ import { getSearchData, getCharacterListData } from '../../api/api';
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { Pagination } from '../../components/pagination/Pagination';
-import { ApiResponse, PaginationState } from '../../types/types';
-import { useNavigate } from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
+import { ApiResponse } from '../../types/types';
+import { useSearchParams, Outlet } from 'react-router-dom';
+import { Loader } from '../../components/loader/Loader';
 
 export function MainPage() {
-  const navigate = useNavigate();
   const [response, setResponse] = useState<ApiResponse>();
-  const [searchParams] = useSearchParams();
-  const currentPage = searchParams.get('page') ?? '1';
-  const [paginationState, setPaginationState] = useState<PaginationState>({
-    previous: null,
-    next: '2',
-    currentPage: currentPage,
-  });
-  const [{ isLoading }, setLoading] = useState({ isLoading: true });
+  const [searchParams, setSearchParams] = useSearchParams();
   const [{ errorMsg }, setErrorMsg] = useState({ errorMsg: '' });
 
   const handleSearch = async (search: string) => {
+    const queryString = search ? `?search=${search}` : `?page=1`;
+    setSearchParams(queryString);
     try {
-      setLoading({ isLoading: true });
       const response = await getSearchData(search);
       setResponse(response);
-      navigate(`?page=${currentPage}`, { replace: true });
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
-    } finally {
-      setLoading({ isLoading: false });
     }
   };
 
   const handlePagination = async (page: number) => {
     try {
-      setLoading({ isLoading: true });
       const response = await getCharacterListData(page);
       setResponse(response);
-      setPaginationState({
-        previous: response.previous,
-        next: response.next,
-        currentPage: paginationState.currentPage,
-      });
-      navigate(`?page=${page}`, { replace: true });
+      setSearchParams(`?page=${page}`);
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
-    } finally {
-      setLoading({ isLoading: false });
     }
   };
 
   const [savedSearch] = useLocalStorage();
+
   useEffect(() => {
-    if (searchParams.get('search')) {
+    const search = searchParams.get('search');
+    const page = searchParams.get('page');
+    if (search) {
+      handleSearch(search);
+    } else if (page) {
+      handlePagination(Number(page));
+    } else {
       handleSearch(savedSearch);
     }
-    if (searchParams.get('page') !== null) {
-      handlePagination(Number(searchParams.get('page')));
-    }
-  });
+  }, [savedSearch]);
 
   if (errorMsg) {
     return <p className="error">Error:{errorMsg}</p>;
   }
+
+  const params = Boolean(searchParams.get('details'));
+
   return (
     <main className="main">
       <SearchForm handleSearch={handleSearch} />
-      <Pagination
-        handlePagination={handlePagination}
-        paginationState={paginationState}
-      />
-
-      {isLoading ? (
-        <div className="loader-container">
-          <div className="loader" />
-        </div>
+      {response ? (
+        <>
+          <Pagination handlePagination={handlePagination} response={response} />
+          <div className="wrapper">
+            <CardList peopleList={response.results} />
+            {params && <Outlet />}
+          </div>
+        </>
       ) : (
-        <CardList peopleList={response?.results} />
+        <Loader />
       )}
     </main>
   );

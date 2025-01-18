@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -7,8 +11,7 @@
   border-radius: 20px;
   background-color: var(--transparent-dark);
   padding: 10px;
-  width: 250px;
-  height: 300px;
+  min-width: 200px;
   cursor: pointer;
   color: rgb(197, 220, 240);
   margin: 6px;
@@ -43,8 +46,8 @@
 }
 
 .card-img {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
   border-radius: 10%;
 }
