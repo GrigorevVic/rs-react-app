@@ -8,6 +8,8 @@ import { Pagination } from '../../components/pagination/Pagination';
 import { ApiResponse } from '../../types/types';
 import { useSearchParams, Outlet } from 'react-router-dom';
 import { Loader } from '../../components/loader/Loader';
+import { Header } from '../../components/header/Header';
+import { Footer } from '../../components/footer/Footer';
 
 export function MainPage() {
   const [response, setResponse] = useState<ApiResponse>();
@@ -56,19 +58,26 @@ export function MainPage() {
   const params = Boolean(searchParams.get('details'));
 
   return (
-    <main className="main">
-      <SearchForm handleSearch={handleSearch} />
-      {response ? (
-        <>
-          <Pagination handlePagination={handlePagination} response={response} />
-          <div className="wrapper">
-            <CardList peopleList={response.results} />
-            {params && <Outlet />}
-          </div>
-        </>
-      ) : (
-        <Loader />
-      )}
-    </main>
+    <>
+      <Header />
+      <main className="main">
+        <SearchForm handleSearch={handleSearch} />
+        {response ? (
+          <>
+            <Pagination
+              handlePagination={handlePagination}
+              response={response}
+            />
+            <div className="wrapper">
+              <CardList peopleList={response.results} />
+              {params && <Outlet />}
+            </div>
+          </>
+        ) : (
+          <Loader />
+        )}
+      </main>
+      <Footer />
+    </>
   );
 }
