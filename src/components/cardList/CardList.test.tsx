@@ -12,7 +12,7 @@ describe('CardList component', () => {
         <CardList peopleList={mockedCharacters.peopleList} />
       </MemoryRouter>
     );
-    expect(screen.getByText('Obi-Wan Kenobi')).toBeInTheDocument();
+    expect(screen.getAllByRole('link').length).toBe(10);
   });
 
   test('if there is no data, displays a message', () => {

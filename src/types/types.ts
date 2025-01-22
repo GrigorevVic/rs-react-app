@@ -11,6 +11,7 @@ export interface People {
 }
 
 export interface ApiResponse {
+  count: number;
   next: null | string;
   previous: null | string;
   results: [];

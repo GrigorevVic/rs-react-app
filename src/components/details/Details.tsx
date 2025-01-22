@@ -23,7 +23,6 @@ export function Details({ character }: DetailsProps) {
       setSearchParams(`?search=${search}`);
     }
   };
-
   const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
 
   return (
