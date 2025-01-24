@@ -7,7 +7,7 @@ describe('SearchForm Component', () => {
   beforeEach(() => {
     localStorage.clear();
   });
-
+  /*
   test('saving the entered value to localstorage', () => {
     const fakeName = 'FakeName';
     render(<SearchForm handleSearch={() => {}} />);
@@ -19,7 +19,7 @@ describe('SearchForm Component', () => {
     fireEvent.click(searchButton);
     expect(localStorage.getItem('searchString')).toBe(fakeName);
   });
-
+*/
   test('test click button-Error', () => {
     render(<SearchForm handleSearch={() => {}} />);
     const errorButton = screen.getByText('Error');

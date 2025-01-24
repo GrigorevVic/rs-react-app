@@ -6,6 +6,7 @@ import { Pagination } from './Pagination';
 import { ApiResponse } from '../../types/types';
 
 describe('Pagination Component', () => {
+  const currentPage = 1;
   test('renders next and prev buttons', () => {
     const response: ApiResponse = {
       count: 82,
@@ -16,7 +17,11 @@ describe('Pagination Component', () => {
 
     render(
       <MemoryRouter>
-        <Pagination response={response} handlePagination={() => {}} />
+        <Pagination
+          currentPage={currentPage}
+          response={response}
+          onPageChange={() => {}}
+        />
       </MemoryRouter>
     );
 
@@ -34,7 +39,11 @@ describe('Pagination Component', () => {
 
     render(
       <MemoryRouter>
-        <Pagination response={response} handlePagination={() => {}} />
+        <Pagination
+          currentPage={currentPage}
+          response={response}
+          onPageChange={() => {}}
+        />
       </MemoryRouter>
     );
 
@@ -52,7 +61,11 @@ describe('Pagination Component', () => {
 
     render(
       <MemoryRouter>
-        <Pagination response={response} handlePagination={() => {}} />
+        <Pagination
+          currentPage={currentPage}
+          response={response}
+          onPageChange={() => {}}
+        />
       </MemoryRouter>
     );
 
@@ -70,7 +83,11 @@ describe('Pagination Component', () => {
 
     render(
       <MemoryRouter>
-        <Pagination response={response} handlePagination={() => {}} />
+        <Pagination
+          currentPage={currentPage}
+          response={response}
+          onPageChange={() => {}}
+        />
       </MemoryRouter>
     );
 
