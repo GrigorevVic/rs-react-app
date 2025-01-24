@@ -6,8 +6,8 @@ import { Pagination } from './Pagination';
 import { ApiResponse } from '../../types/types';
 
 describe('Pagination Component', () => {
-  const currentPage = 1;
   test('renders next and prev buttons', () => {
+    const currentPage = 1;
     const response: ApiResponse = {
       count: 82,
       previous: 'http://example.com/api/characters?page=1',
@@ -30,6 +30,7 @@ describe('Pagination Component', () => {
   });
 
   test('disables prev button', () => {
+    const currentPage = 1;
     const response: ApiResponse = {
       count: 82,
       previous: null,
@@ -52,6 +53,7 @@ describe('Pagination Component', () => {
   });
 
   test('disables next button', () => {
+    const currentPage = 8;
     const response: ApiResponse = {
       count: 82,
       previous: 'https://swapi.dev/api/people/?page=8',
@@ -74,6 +76,7 @@ describe('Pagination Component', () => {
   });
 
   test('click next button', () => {
+    const currentPage = 1;
     const response: ApiResponse = {
       count: 82,
       previous: null,

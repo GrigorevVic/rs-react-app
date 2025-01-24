@@ -20,7 +20,6 @@ export const Pagination = ({
   const handleNext = () => {
     onPageChange(currentPage + 1);
   };
-
   return (
     <div className="btn-container">
       <button className="btn" onClick={handlePrevious} disabled={!previous}>
