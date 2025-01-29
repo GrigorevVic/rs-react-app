@@ -1,6 +1,7 @@
 import './styles.css';
 import { CardItem } from '../cardItem/CardItem';
 import { People, PeopleList } from '../../types/types';
+import { Flyout } from '../flyout/flyout';
 
 export function CardList({ peopleList }: PeopleList) {
   return (
@@ -14,6 +15,7 @@ export function CardList({ peopleList }: PeopleList) {
       ) : (
         <p className="no-results">Nothing found for your request</p>
       )}
+      <Flyout />
     </>
   );
 }

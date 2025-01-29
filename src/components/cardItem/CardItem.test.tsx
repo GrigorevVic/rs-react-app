@@ -4,14 +4,18 @@ import { render, screen } from '@testing-library/react';
 import { CardItem } from './CardItem';
 import { MemoryRouter } from 'react-router-dom';
 import { mockedCharacters } from '../../test/mocks';
+import { Provider } from 'react-redux';
+import { store } from '../../store/store';
 
 describe('Card component', () => {
   test('the card component renders the relevant card data', () => {
     render(
-      <MemoryRouter>
-        <CardItem people={mockedCharacters.peopleList[0]} />
-        <CardItem people={mockedCharacters.peopleList[9]} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <CardItem people={mockedCharacters.peopleList[0]} />
+          <CardItem people={mockedCharacters.peopleList[9]} />
+        </MemoryRouter>
+      </Provider>
     );
     expect(screen.getByText('Luke Skywalker')).toBeInTheDocument();
     expect(screen.getByText('Obi-Wan Kenobi')).toBeInTheDocument();

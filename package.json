@@ -12,7 +12,11 @@
     "format:fix": "prettier --write .",
     "test": "vitest run --coverage"
   },
-
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --report-unused-disable-directives",
+    "*.css": "stylelint --quiet-deprecation-warnings",
+    "*.html": "prettier --check"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "react": "^18.3.1",
