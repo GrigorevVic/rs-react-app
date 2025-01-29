@@ -12,14 +12,12 @@
     "format:fix": "prettier --write .",
     "test": "vitest run --coverage"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --report-unused-disable-directives",
-    "*.css": "stylelint --quiet-deprecation-warnings",
-    "*.html": "prettier --check"
-  },
+
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2"
   },
   "devDependencies": {
