@@ -19,6 +19,7 @@ export function SearchForm(props: SearchProps) {
     event.preventDefault();
     props.handleSearch(term);
     setSavedSearch(term);
+    setTerm('');
   };
 
   const getError = () => {

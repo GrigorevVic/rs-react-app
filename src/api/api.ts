@@ -1,28 +1,23 @@
-import { ApiResponse, People } from '../types/types';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-//const url = 'https://swapi.py4e.com/api';
-const url = 'https://swapi.dev/api';
+const baseUrl = 'https://swapi.dev/api/people';
 
-export const getData = async (
-  currentPage: number,
-  savedSearch: string
-): Promise<ApiResponse> => {
-  const queryString = savedSearch
-    ? `?search=${savedSearch}`
-    : `?page=${String(currentPage)}`;
-  const response = await fetch(`${url}/people/${queryString}`);
-  if (!response.ok) {
-    throw new Error('Error fetching data');
-  }
-  const result = await response.json();
-  return result;
-};
+export const api = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({ baseUrl }),
+  endpoints: (build) => ({
+    getCharacters: build.query({
+      query: ({ page = 1, search }) => {
+        const queryString = search
+          ? `search=${search}`
+          : `page=${String(page)}`;
+        return `?${queryString}`;
+      },
+    }),
+    getCharacterById: build.query({
+      query: ({ id }) => `${id}`,
+    }),
+  }),
+});
 
-export const getDataById = async (id: string): Promise<People> => {
-  const response = await fetch(`${url}/people/${id}`);
-  if (!response.ok) {
-    throw new Error('Error fetching data');
-  }
-  const result = await response.json();
-  return result;
-};
+export const { useGetCharactersQuery, useGetCharacterByIdQuery } = api;

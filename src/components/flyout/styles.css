@@ -15,7 +15,7 @@
   box-shadow: 0 0 15px 15px var(--color-shadow);
   transition: 0.3s ease-in-out;
   transform: translate(-50%, 120%);
-  background: url('./star-wars.jpg');
+  background: url('/star-wars.jpg');
 }
 
 .flyout.show {

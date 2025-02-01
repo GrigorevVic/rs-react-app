@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   max-width: 1440px;
   margin: 0 auto;
-  background-image: url('./star-wars.jpg');
+  background-image: url('/star-wars.jpg');
 
   background-color: var(--transparent-dark);
   background-blend-mode: darken;
