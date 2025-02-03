@@ -35,6 +35,18 @@ export function MainPage() {
     setSavedSearch(term);
   };
 
+  const handlerThemeToggler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const currentTheme = document.body.className;
+    if (currentTheme === 'dark-theme') {
+      document.body.classList.remove('dark-theme');
+    } else {
+      document.body.classList.add('dark-theme');
+      console.log(event);
+    }
+  };
+
   if (isError) {
     return <p className="error">Error</p>;
   }
@@ -43,6 +55,11 @@ export function MainPage() {
     <>
       <Header />
       <main className="main">
+        <input
+          type="checkbox"
+          className="checkbox"
+          onChange={handlerThemeToggler}
+        />
         <SearchForm handleSearch={handleSearch} />
         {!isLoading ? (
           <>

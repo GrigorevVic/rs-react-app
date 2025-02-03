@@ -5,7 +5,7 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   --main-dark: #090033;
-  --transparent-dark: rgba(41, 54, 40, 0.7);
+  --transparent-dark: rgba(41, 54, 40, 0.5);
   --transparent-dark-hover: rgba(41, 54, 40);
   --border-shadow: rgba(86, 114, 119, 0.5);
   --main-light: #dff8fa;
@@ -24,18 +24,33 @@
 }
 
 body {
+  transition: background-color 0.5s ease;
   display: flex;
   flex-direction: column;
-  max-width: 1440px;
   margin: 0 auto;
-  background-image: url('/star-wars.jpg');
-
-  background-color: var(--transparent-dark);
+  background-image: url('/falcon.jpg');
   background-blend-mode: darken;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+/*
+body.light-theme {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-image: url('/falcon.jpg');
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+  */
+
+body.dark-theme {
+  background-image: url('/dark.jpg');
 }
 
 .btn {

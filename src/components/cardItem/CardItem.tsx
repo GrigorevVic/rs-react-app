@@ -32,9 +32,9 @@ export function CardItem(props: PeopleItem) {
   };
 
   const handleCheckboxChange = (
-    evt: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    if (evt.target.checked) {
+    if (event.target.checked) {
       dispatch(selectChar(people));
     } else {
       dispatch(unselectChar(people.name));
