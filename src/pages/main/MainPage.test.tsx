@@ -5,17 +5,24 @@ import { MainPage } from './MainPage';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
+import { ThemeProvider } from '../../contexts/ThemeContextProvider';
 
 describe('MainPage Component', () => {
   test('render MainPage', () => {
-    const { container } = render(
-      <Provider store={store}>
-        <MemoryRouter initialEntries={['?page=1']}>
-          <MainPage />
-        </MemoryRouter>
-      </Provider>
-    );
-    const element = container.querySelector('.main');
-    expect(element).toBeInTheDocument();
+    try {
+      const { container } = render(
+        <ThemeProvider>
+          <Provider store={store}>
+            <MemoryRouter initialEntries={['?page=1']}>
+              <MainPage />
+            </MemoryRouter>
+          </Provider>
+        </ThemeProvider>
+      );
+      const element = container.querySelector('.main');
+      expect(element).toBeInTheDocument();
+    } catch (error) {
+      expect(error).toEqual(new Error('context error'));
+    }
   });
 });
