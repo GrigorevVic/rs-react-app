@@ -15,7 +15,7 @@ export function MainPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const [savedSearch, setSavedSearch] = useLocalStorage();
-  const { data, isLoading, isError } = useGetCharactersQuery({
+  const { data, isError, isFetching } = useGetCharactersQuery({
     search: savedSearch,
     page: currentPage,
   });
@@ -39,14 +39,13 @@ export function MainPage() {
   if (isError) {
     return <p className="error">Error</p>;
   }
-
   return (
     <>
       <Header />
       <ThemeToggler />
       <main className="main">
         <SearchForm handleSearch={handleSearch} />
-        {!isLoading ? (
+        {!isFetching ? (
           <>
             <Pagination
               onPageChange={setCurrentPage}

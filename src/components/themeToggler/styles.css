@@ -1,7 +1,9 @@
 .theme-button {
+  position: absolute;
   width: 100px;
   height: 100px;
   margin: 0 auto;
+  top: 30px;
 }
 
 .toggler {

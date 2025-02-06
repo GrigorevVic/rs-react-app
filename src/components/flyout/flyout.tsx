@@ -27,6 +27,7 @@ export function Flyout() {
         </button>
         <button className="btn" type="button">
           <a
+            className="download"
             href={createHref(Object.values(listSelecteChars.entities))}
             download={`${count}_character.csv`}
           >

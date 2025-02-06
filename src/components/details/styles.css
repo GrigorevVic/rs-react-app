@@ -7,11 +7,11 @@
   align-items: center;
   border: 1px solid var(--border-shadow);
   border-radius: 20px;
-  background-color: var(--transparent-dark-hover);
+  background-color: var(--transparent-dark);
   padding: 5px;
   width: 300px;
   height: 600px;
-  color: rgb(197, 220, 240);
+  color: var(--main-light);
   margin: 6px;
   transition: 0.5s;
 }

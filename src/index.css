@@ -4,19 +4,24 @@
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --main-dark: #090033;
-  --main-light:  #6a71ec;
-  --transparent-dark: rgba(41, 54, 40, 0.5);
-  --transparent-dark-hover: rgba(41, 54, 40);
-  --border-shadow: rgba(86, 114, 119, 0.5);
+  --main-dark: #2f2170;
   --main-light: #dff8fa;
-  --links: #646cff;
-  --links-hover: #a0a5ff;
-  --main-buttons: #646cff;
-  --main-buttons-hover: #a0a5ff;
+  --transparent-dark: rgba(41, 54, 40, 0.5);
+  --transparent-light: rgba(221, 235, 236, 0.5);
+  --border-shadow: rgba(86, 114, 119, 0.5);
   --accent-red: #ff0000;
+  --links-hover: #a0a5ff;
   font-size: 10px;
 }
+
+a {
+  text-decoration: none;
+}
+
+.download {
+  color: var(--main-light);
+}
+
 
 * {
   margin: 0;
@@ -38,8 +43,8 @@ body {
 body[dark] {
   background-image: url('/dark.jpg');
   .btn {
-    background: var(--main-dark);
-    color: var(--main-light);
+    background: var(--main-light);
+    color: var(--main-dark);
   }
   .toggler {
     background: rgb(247, 222, 1);
@@ -50,6 +55,17 @@ body[dark] {
   }
   .footer a {
     color: var(--main-light);
+  }
+  .card-container {
+    background: var(--transparent-light);
+
+  }
+  .card-details {
+    background: var(--transparent-light);
+  }
+
+  .download {
+    color: var(--main-dark);
   }
   
 }
@@ -71,6 +87,8 @@ body[dark] {
 }
 
 .btn {
+  background: var(--main-dark);
+  color: var(--main-light);
   width: 80px;
   height: 33px;
   cursor: pointer;
@@ -80,3 +98,10 @@ body[dark] {
 .btn:not([disabled]):hover {
   background: var(--links-hover);
 }
+
+.btn[disabled] {
+  background: var(--links-hover);
+  opacity: 0.5;
+  cursor: default;
+}
+

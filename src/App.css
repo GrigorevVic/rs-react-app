@@ -9,6 +9,6 @@
 .error {
   flex-grow: 1;
   padding: 20px;
-  color: red;
+  color: var(--main-light);
   font-size: 2rem;
 }
