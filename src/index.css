@@ -5,11 +5,11 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   --main-dark: #090033;
+  --main-light:  #6a71ec;
   --transparent-dark: rgba(41, 54, 40, 0.5);
   --transparent-dark-hover: rgba(41, 54, 40);
   --border-shadow: rgba(86, 114, 119, 0.5);
   --main-light: #dff8fa;
-  --accent-blue: #6a71ec;
   --links: #646cff;
   --links-hover: #a0a5ff;
   --main-buttons: #646cff;
@@ -24,33 +24,50 @@
 }
 
 body {
-  transition: background-color 0.5s ease;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background-image: url('/falcon.jpg');
   background-blend-mode: darken;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-/*
-body.light-theme {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
   background-image: url('/falcon.jpg');
-  background-blend-mode: darken;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
-  */
 
-body.dark-theme {
+body[dark] {
   background-image: url('/dark.jpg');
+  .btn {
+    background: var(--main-dark);
+    color: var(--main-light);
+  }
+  .toggler {
+    background: rgb(247, 222, 1);
+    background-image: url('/theme-light.svg');
+  }
+  .header {
+    color: var(--main-light);
+  }
+  .footer a {
+    color: var(--main-light);
+  }
+  
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/death-star.jpg');
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 1000px;
 }
 
 .btn {
@@ -61,5 +78,5 @@ body.dark-theme {
 }
 
 .btn:not([disabled]):hover {
-  background: rgb(117, 113, 113);
+  background: var(--links-hover);
 }

@@ -9,6 +9,7 @@ import { Loader } from '../../components/loader/Loader';
 import { Header } from '../../components/header/Header';
 import { Footer } from '../../components/footer/Footer';
 import { useGetCharactersQuery } from '../../api/api';
+import { ThemeToggler } from '../../components/themeToggler/themeToggler';
 
 export function MainPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,18 +36,6 @@ export function MainPage() {
     setSavedSearch(term);
   };
 
-  const handlerThemeToggler = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const currentTheme = document.body.className;
-    if (currentTheme === 'dark-theme') {
-      document.body.classList.remove('dark-theme');
-    } else {
-      document.body.classList.add('dark-theme');
-      console.log(event);
-    }
-  };
-
   if (isError) {
     return <p className="error">Error</p>;
   }
@@ -54,12 +43,8 @@ export function MainPage() {
   return (
     <>
       <Header />
+      <ThemeToggler />
       <main className="main">
-        <input
-          type="checkbox"
-          className="checkbox"
-          onChange={handlerThemeToggler}
-        />
         <SearchForm handleSearch={handleSearch} />
         {!isLoading ? (
           <>

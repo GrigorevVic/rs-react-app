@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   min-height: 90px;
-  color: white;
+  color: var(--main-dark);
 }
 
 .title {
