@@ -20,11 +20,15 @@ export function MainPage() {
   const handleSearch = async (search: string) => {
     const queryString = search ? `?search=${search}` : `?page=1`;
     setSearchParams(queryString);
+    setIsLoading(false);
     try {
       const response = await getSearchData(search);
       setResponse(response);
+      setIsLoading(true);
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
+    } finally {
+      setIsLoading(true);
     }
   };
 
@@ -34,6 +38,7 @@ export function MainPage() {
       const response = await getCharacterListData(page);
       setResponse(response);
       setSearchParams(`?page=${page}`);
+      setIsLoading(true);
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
     } finally {
@@ -60,6 +65,8 @@ export function MainPage() {
   }
 
   const params = Boolean(searchParams.get('details'));
+
+  console.log(isLoading, response);
 
   return (
     <>
