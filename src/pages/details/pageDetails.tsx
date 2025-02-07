@@ -8,7 +8,7 @@ export function PageDetails() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get('details');
-  const { data, isLoading } = useGetCharacterByIdQuery({ id });
+  const { data, isFetching } = useGetCharacterByIdQuery({ id });
 
-  return <>{!isLoading ? <Details character={data} /> : <Loader />} </>;
+  return <>{!isFetching ? <Details character={data} /> : <Loader />} </>;
 }
