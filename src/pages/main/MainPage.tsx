@@ -15,6 +15,7 @@ export function MainPage() {
   const [response, setResponse] = useState<ApiResponse>();
   const [searchParams, setSearchParams] = useSearchParams();
   const [{ errorMsg }, setErrorMsg] = useState({ errorMsg: '' });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSearch = async (search: string) => {
     const queryString = search ? `?search=${search}` : `?page=1`;
@@ -28,12 +29,15 @@ export function MainPage() {
   };
 
   const handlePagination = async (page: number) => {
+    setIsLoading(false);
     try {
       const response = await getCharacterListData(page);
       setResponse(response);
       setSearchParams(`?page=${page}`);
     } catch (e) {
       setErrorMsg({ errorMsg: (e as Error).message });
+    } finally {
+      setIsLoading(true);
     }
   };
 
@@ -62,7 +66,7 @@ export function MainPage() {
       <Header />
       <main className="main">
         <SearchForm handleSearch={handleSearch} />
-        {response ? (
+        {isLoading && response ? (
           <>
             <Pagination
               handlePagination={handlePagination}
