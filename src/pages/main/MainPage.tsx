@@ -20,17 +20,13 @@ export function MainPage() {
     page: currentPage,
   });
 
-  const isDetails = Boolean(searchParams.get('details'));
-
   useEffect(() => {
-    if (!isDetails) {
-      if (savedSearch) {
-        setSearchParams(`?search=${savedSearch}`);
-      } else {
-        setSearchParams(`?page=${currentPage}`);
-      }
+    if (savedSearch) {
+      setSearchParams(`?search=${savedSearch}`);
+    } else {
+      setSearchParams(`?page=${currentPage}`);
     }
-  }, [currentPage, savedSearch, setSearchParams, isDetails]);
+  }, [currentPage, savedSearch]);
 
   const handleSearch = (term: string) => {
     setSavedSearch(term);
@@ -39,6 +35,8 @@ export function MainPage() {
   if (isError) {
     return <p className="error">Error</p>;
   }
+  const isDetails = Boolean(searchParams.get('details'));
+
   return (
     <>
       <Header />
