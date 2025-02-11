@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/components/cardList/styles.css"],"sourcesContent":[".cards-container {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 70%;\n}\n\n.wrapper {\n  position: relative;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n}\n"],"names":[],"mappings":"AAAA;;;;;;;AAOA"}},
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

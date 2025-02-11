@@ -1,7 +1,8 @@
 import './styles.css';
 import { People } from '../../types/types';
 import { getIdFromUrl } from '../../utils/utils';
-import { Link, useSearchParams } from 'react-router-dom';
+//import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectChar,
@@ -15,7 +16,7 @@ interface PeopleItem {
 }
 export function CardItem(props: PeopleItem) {
   const { people } = props;
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
 
   const isSelectedPeople = Boolean(
@@ -24,13 +25,13 @@ export function CardItem(props: PeopleItem) {
 
   const id = getIdFromUrl(people.url);
   const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
-
+  /*
   const getPath = (): string => {
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set('details', id.toString());
     return `?${newSearchParams}`;
   };
-
+*/
   const handleCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
@@ -40,10 +41,10 @@ export function CardItem(props: PeopleItem) {
       dispatch(unselectChar(people.name));
     }
   };
-
+  // <Link to={getPath()}>
   return (
     <li className="card-container" key={people.name}>
-      <Link to={getPath()}>
+      <Link href="aaaaa">
         <div className="wrapper-img">
           <img className="card-img" src={img} alt={people.name} />
         </div>

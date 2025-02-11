@@ -1,0 +1,3 @@
+/* [project]/src/components/loader/styles.css [ssr] (css) */
+.loader-container,.no-results{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:3rem}.loader{width:100px;aspect-ratio:1;display:grid;border-radius:50%;background:linear-gradient(0deg,#ece8e880 30%,#9b040400 0 70%,#808881 0) 50%/8% 100%,linear-gradient(90deg,#817c7c40 30%,#b9090900 0 70%,#756c6cbf 0) 50%/100% 8%;background-repeat:no-repeat;animation:1s steps(12,end) infinite l23}.loader:before,.loader:after{content:"";grid-area:1/1;border-radius:50%;background:inherit;opacity:.915;transform:rotate(30deg)}.loader:after{opacity:.83;transform:rotate(60deg)}@keyframes l23{to{transform:rotate(1turn)}}
+/*# sourceMappingURL=src_components_loader_styles_f42186.css.map*/

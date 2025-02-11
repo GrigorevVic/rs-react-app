@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/components/searchForm/styles.css"],"sourcesContent":[".search-form {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 10px;\n  margin: 20px 0px;\n}\n\n.search-input {\n  width: 300px;\n  height: 30px;\n}\n"],"names":[],"mappings":"AAAA,2FAQA"}},
+    {"offset": {"line": 1, "column": 129}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
