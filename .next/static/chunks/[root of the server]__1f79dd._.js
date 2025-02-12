@@ -605,7 +605,7 @@ function SearchForm(props) {
     const [hasError, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])({
         hasError: false
     });
-    const [, setSavedSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useLocalStorage"])();
+    const [savedSearch, setSavedSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useLocalStorage"])();
     const handleChange = (event)=>{
         setTerm(event.target.value.trim());
     };
@@ -613,6 +613,7 @@ function SearchForm(props) {
         event.preventDefault();
         props.handleSearch(term);
         setSavedSearch(term);
+        console.log('search', savedSearch);
         setTerm('');
     };
     const getError = ()=>{
@@ -636,7 +637,7 @@ function SearchForm(props) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-                lineNumber: 34,
+                lineNumber: 35,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -645,7 +646,7 @@ function SearchForm(props) {
                 children: "Search"
             }, void 0, false, {
                 fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-                lineNumber: 41,
+                lineNumber: 42,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -655,17 +656,17 @@ function SearchForm(props) {
                 children: "Error"
             }, void 0, false, {
                 fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-        lineNumber: 33,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
-_s(SearchForm, "dFXrovqhh832nnIHVNSNASUPNww=", false, function() {
+_s(SearchForm, "QBTa1J3a5EUdT1wUkyIyZlpqTXo=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useLocalStorage"]
     ];
@@ -743,6 +744,7 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$utils$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/utils/utils.ts [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [client] (ecmascript)");
 //import { useSearchParams } from 'next/navigation';
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/link.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$selectedCharSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/store/selectedCharSlice.ts [client] (ecmascript)");
@@ -754,16 +756,19 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
+;
 function CardItem(props) {
     _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const { people } = props;
     // const [searchParams] = useSearchParams();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useDispatch"])();
+    // console.log(router);
     const isSelectedPeople = Boolean((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useSelector"])({
         "CardItem.isSelectedPeople.useSelector": (state)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$selectedCharSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["selectById"])(state, people.name)
     }["CardItem.isSelectedPeople.useSelector"]));
     const id = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$utils$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["getIdFromUrl"])(people.url);
-    const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+    //const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
     /*
   const getPath = (): string => {
     const newSearchParams = new URLSearchParams(searchParams);
@@ -792,12 +797,12 @@ function CardItem(props) {
                             alt: people.name
                         }, void 0, false, {
                             fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                            lineNumber: 49,
+                            lineNumber: 53,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                        lineNumber: 48,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -805,13 +810,13 @@ function CardItem(props) {
                         children: people.name
                     }, void 0, false, {
                         fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                        lineNumber: 51,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                lineNumber: 47,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -821,18 +826,19 @@ function CardItem(props) {
                 onChange: handleCheckboxChange
             }, void 0, false, {
                 fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                lineNumber: 53,
+                lineNumber: 57,
                 columnNumber: 7
             }, this)
         ]
     }, people.name, true, {
         fileName: "[project]/src/components/cardItem/CardItem.tsx",
-        lineNumber: 46,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 }
-_s(CardItem, "HHF1nSYu29LFRF2DQMTWH8IFW6M=", false, function() {
+_s(CardItem, "xszKVk8sjpM3LpRDL2X1wKOdb9Q=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useDispatch"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useSelector"]
     ];
@@ -982,11 +988,37 @@ __turbopack_esm__({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$cardItem$2f$CardItem$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/cardItem/CardItem.tsx [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$flyout$2f$flyout$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/flyout/flyout.tsx [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/hooks/useLocalStorage.ts [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/index.js [client] (ecmascript)");
+;
+var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
 ;
-function CardList({ peopleList }) {
+;
+;
+function CardList({ peopleList, currentPage }) {
+    _s();
+    const [savedSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useLocalStorage"])();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "CardList.useEffect": ()=>{
+            const queryString = savedSearch ? {
+                search: savedSearch
+            } : {
+                page: currentPage
+            };
+            router.replace({
+                pathname: router.pathname,
+                query: queryString
+            });
+        }
+    }["CardList.useEffect"], [
+        savedSearch,
+        currentPage
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             peopleList && peopleList.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -995,29 +1027,35 @@ function CardList({ peopleList }) {
                         people: people
                     }, people.name, false, {
                         fileName: "[project]/src/components/cardList/CardList.tsx",
-                        lineNumber: 12,
+                        lineNumber: 29,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/cardList/CardList.tsx",
-                lineNumber: 10,
+                lineNumber: 27,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: "no-results",
                 children: "Nothing found for your request"
             }, void 0, false, {
                 fileName: "[project]/src/components/cardList/CardList.tsx",
-                lineNumber: 16,
+                lineNumber: 33,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$flyout$2f$flyout$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Flyout"], {}, void 0, false, {
                 fileName: "[project]/src/components/cardList/CardList.tsx",
-                lineNumber: 18,
+                lineNumber: 35,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
+_s(CardList, "e+YAGnV0asN4YjYkUcpi66AtcyY=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useLocalStorage"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = CardList;
 var _c;
 __turbopack_refresh__.register(_c, "CardList");
@@ -1380,7 +1418,7 @@ function MainPage() {
             children: "Error"
         }, void 0, false, {
             fileName: "[project]/src/pages/index.tsx",
-            lineNumber: 37,
+            lineNumber: 38,
             columnNumber: 12
         }, this);
     }
@@ -1389,12 +1427,12 @@ function MainPage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$header$2f$Header$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Header"], {}, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 43,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$themeToggler$2f$themeToggler$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["ThemeToggler"], {}, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1404,7 +1442,7 @@ function MainPage() {
                         handleSearch: handleSearch
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 46,
+                        lineNumber: 47,
                         columnNumber: 10
                     }, this),
                     !isFetching ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1415,38 +1453,39 @@ function MainPage() {
                                 response: data
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 49,
+                                lineNumber: 50,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "wrapper",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$cardList$2f$CardList$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["CardList"], {
-                                    peopleList: data?.results
+                                    peopleList: data?.results,
+                                    currentPage: currentPage
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/index.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 56,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 54,
+                                lineNumber: 55,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$loader$2f$Loader$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 60,
+                        lineNumber: 61,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 45,
+                lineNumber: 46,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footer$2f$Footer$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, this)
         ]

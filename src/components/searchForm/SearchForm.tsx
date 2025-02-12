@@ -29,6 +29,7 @@ export function SearchForm(props: SearchProps) {
   if (hasError.hasError) {
     throw new Error('An error has occurred');
   }
+
   return (
     <form onSubmit={handleSubmit} className="search-form" name="form">
       <input
