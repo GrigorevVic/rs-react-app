@@ -1,7 +1,8 @@
+/* [project]/src/components/details/styles.css [client] (css) */
 .wrapper-card-details {
   height: 600px;
   width: 300px;
-  background: rgb(223, 213, 213);
+  background: #dfd5d5;
 }
 
 .card-details {
@@ -19,7 +20,7 @@
   height: 600px;
   color: var(--main-light);
   margin: 6px;
-  transition: 0.5s;
+  transition: all .5s;
 }
 
 .wrapper-img-details {
@@ -36,3 +37,5 @@
   object-fit: cover;
   border-radius: 5%;
 }
+
+/*# sourceMappingURL=src_components_details_styles_735113.css.map*/

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/components/details/styles.css"],"sourcesContent":[".wrapper-card-details {\n  height: 600px;\n  width: 300px;\n  background: rgb(223, 213, 213);\n}\n\n.card-details {\n  position: sticky;\n  top: 100px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  border: 1px solid var(--border-shadow);\n  border-radius: 20px;\n  background-color: var(--transparent-dark);\n  padding: 5px;\n  width: 300px;\n  height: 600px;\n  color: var(--main-light);\n  margin: 6px;\n  transition: 0.5s;\n}\n\n.wrapper-img-details {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 90%;\n  overflow: hidden;\n}\n\n.img-details {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border-radius: 5%;\n}\n"],"names":[],"mappings":"AAAA,kEAMA,yTAkBA,sGAQA"}},
+    {"offset": {"line": 1, "column": 551}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

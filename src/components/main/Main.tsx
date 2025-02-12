@@ -6,6 +6,7 @@ import { Pagination } from '../pagination/Pagination';
 import { Loader } from '../loader/Loader';
 import { useGetCharactersQuery } from '../../api/api';
 import { useRouter } from 'next/router';
+import { Details } from '../details/Details';
 
 export function Main() {
   const router = useRouter();
@@ -33,7 +34,8 @@ export function Main() {
   if (isError) {
     return <p className="error">Error</p>;
   }
-  //const isDetails = Boolean(searchParams.get('details'));
+
+  const isDetails = Boolean(router.query.details);
 
   return (
     <>
@@ -48,7 +50,7 @@ export function Main() {
             />
             <div className="wrapper">
               <CardList peopleList={data?.results} />
-              {/* isDetails && <Outlet /> */}
+              {isDetails && <Details id={router.query.details} />}
             </div>
           </>
         ) : (

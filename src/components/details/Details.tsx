@@ -1,42 +1,47 @@
 import './styles.css';
-import { useSearchParams, useLocation } from 'react-router-dom';
-import { People } from '../../types/types';
+import { useGetCharacterByIdQuery } from '../../api/api';
+import { Loader } from '../loader/Loader';
+import { useRouter } from 'next/router';
 
 interface DetailsProps {
-  character: People;
+  id: string;
 }
 
-export function Details({ character }: DetailsProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const id = queryParams.get('details');
-
+export function Details({ id }: DetailsProps) {
+  const { data, isFetching } = useGetCharacterByIdQuery({ id });
+  const router = useRouter();
+  const { query } = router;
   const closeDetails = () => {
-    searchParams.delete('details');
-    setSearchParams(searchParams.toString());
+    Reflect.deleteProperty(query, 'details');
+    router.replace({
+      pathname: router.pathname,
+      query,
+    });
   };
 
-  const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+  //const img = `https://starwars-visualguide.com/assets/img/datas/${id}.jpg`;
 
   return (
     <>
-      <div className="card-details">
-        <h2 className="name">{character.name}</h2>
-        <div className="wrapper-img-details">
-          <img className="img-details" src={img} alt={character.name} />
+      {!isFetching ? (
+        <div className="card-details">
+          <h2 className="name">{data.name}</h2>
+          <div className="wrapper-img-details">
+            <img className="img-details" src="/star-wars.jpg" alt={data.name} />
+          </div>
+          <p className="height">Height: {data.height}</p>
+          <p className="mass">Mass: {data.mass}</p>
+          <p className="birth_year">Birth year: {data.birth_year}</p>
+          <p className="gender">Gender: {data.gender}</p>
+          <p className="skin_color">Skin color: {data.skin_color}</p>
+          <p className="eye_color">Eye color: {data.eye_color}</p>
+          <button className="btn" onClick={closeDetails}>
+            Close
+          </button>
         </div>
-        <p className="height">Height: {character.height}</p>
-        <p className="mass">Mass: {character.mass}</p>
-        <p className="birth_year">Birth year: {character.birth_year}</p>
-        <p className="gender">Gender: {character.gender}</p>
-        <p className="skin_color">Skin color: {character.skin_color}</p>
-        <p className="eye_color">Eye color: {character.eye_color}</p>
-        <button className="btn" onClick={closeDetails}>
-          Close
-        </button>
-      </div>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }

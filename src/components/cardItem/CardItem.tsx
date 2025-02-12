@@ -1,8 +1,7 @@
 import './styles.css';
 import { People } from '../../types/types';
-//import { getIdFromUrl } from '../../utils/utils';
-// import { useRouter } from 'next/router';
-//import { useSearchParams } from 'next/navigation';
+import { getIdFromUrl } from '../../utils/utils';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -16,26 +15,17 @@ interface PeopleItem {
   people: People;
 }
 export function CardItem(props: PeopleItem) {
-  // const router = useRouter();
+  const router = useRouter();
   const { people } = props;
-  // const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
-  // console.log(router);
 
   const isSelectedPeople = Boolean(
     useSelector((state: RootState) => selectById(state, people.name))
   );
 
-  //const id = getIdFromUrl(people.url);
+  const id = getIdFromUrl(people.url);
   //const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
 
-  /*
-  const getPath = (): string => {
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set('details', id.toString());
-    return `?${newSearchParams}`;
-  };
-*/
   const handleCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
@@ -45,10 +35,10 @@ export function CardItem(props: PeopleItem) {
       dispatch(unselectChar(people.name));
     }
   };
-  // <Link to={getPath()}>
+
   return (
     <li className="card-container" key={people.name}>
-      <Link href="aaaaa">
+      <Link href={{ query: { ...router.query, details: id } }}>
         <div className="wrapper-img">
           <img className="card-img" src="/star-wars.jpg" alt={people.name} />
         </div>
