@@ -23,7 +23,6 @@ export function CardItem(props: PeopleItem) {
   );
 
   const id = getIdFromUrl(people.url);
-  const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
 
   const getPath = (): string => {
     const newSearchParams = new URLSearchParams(searchParams);
@@ -45,7 +44,7 @@ export function CardItem(props: PeopleItem) {
     <li className="card-container" key={people.name}>
       <Link to={getPath()}>
         <div className="wrapper-img">
-          <img className="card-img" src={img} alt={people.name} />
+          <img className="card-img" src={`/${id}.jpg`} alt={people.name} />
         </div>
         <p className="name">{people.name}</p>
       </Link>
