@@ -4,7 +4,7 @@ import { Loader } from '../loader/Loader';
 import { useRouter } from 'next/router';
 
 interface DetailsProps {
-  id: string;
+  id: string | undefined | string[];
 }
 
 export function Details({ id }: DetailsProps) {
@@ -19,15 +19,13 @@ export function Details({ id }: DetailsProps) {
     });
   };
 
-  //const img = `https://starwars-visualguide.com/assets/img/datas/${id}.jpg`;
-
   return (
     <>
       {!isFetching ? (
         <div className="card-details">
           <h2 className="name">{data.name}</h2>
           <div className="wrapper-img-details">
-            <img className="img-details" src="/star-wars.jpg" alt={data.name} />
+            <img className="img-details" src={`/${id}.jpg`} alt={data.name} />
           </div>
           <p className="height">Height: {data.height}</p>
           <p className="mass">Mass: {data.mass}</p>

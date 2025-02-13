@@ -24,7 +24,6 @@ export function CardItem(props: PeopleItem) {
   );
 
   const id = getIdFromUrl(people.url);
-  //const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
 
   const handleCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -40,7 +39,7 @@ export function CardItem(props: PeopleItem) {
     <li className="card-container" key={people.name}>
       <Link href={{ query: { ...router.query, details: id } }}>
         <div className="wrapper-img">
-          <img className="card-img" src="/star-wars.jpg" alt={people.name} />
+          <img className="card-img" src={`/${id}.jpg`} alt={people.name} />
         </div>
         <p className="name">{people.name}</p>
       </Link>

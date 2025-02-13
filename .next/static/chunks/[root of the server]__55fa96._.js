@@ -836,7 +836,6 @@ function CardItem(props) {
         "CardItem.isSelectedPeople.useSelector": (state)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$selectedCharSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["selectById"])(state, people.name)
     }["CardItem.isSelectedPeople.useSelector"]));
     const id = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$utils$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["getIdFromUrl"])(people.url);
-    //const img = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
     const handleCheckboxChange = (event)=>{
         if (event.target.checked) {
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$selectedCharSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["selectChar"])(people));
@@ -859,16 +858,16 @@ function CardItem(props) {
                         className: "wrapper-img",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                             className: "card-img",
-                            src: "/star-wars.jpg",
+                            src: `/${id}.jpg`,
                             alt: people.name
                         }, void 0, false, {
                             fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                            lineNumber: 43,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                        lineNumber: 42,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -876,13 +875,13 @@ function CardItem(props) {
                         children: people.name
                     }, void 0, false, {
                         fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                        lineNumber: 45,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -892,13 +891,13 @@ function CardItem(props) {
                 onChange: handleCheckboxChange
             }, void 0, false, {
                 fileName: "[project]/src/components/cardItem/CardItem.tsx",
-                lineNumber: 47,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]
     }, people.name, true, {
         fileName: "[project]/src/components/cardItem/CardItem.tsx",
-        lineNumber: 40,
+        lineNumber: 39,
         columnNumber: 5
     }, this);
 }
@@ -1264,7 +1263,6 @@ function Details({ id }) {
             query
         });
     };
-    //const img = `https://starwars-visualguide.com/assets/img/datas/${id}.jpg`;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: !isFetching ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "card-details",
@@ -1274,23 +1272,23 @@ function Details({ id }) {
                     children: data.name
                 }, void 0, false, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 28,
+                    lineNumber: 26,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "wrapper-img-details",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         className: "img-details",
-                        src: "/star-wars.jpg",
+                        src: `/${id}.jpg`,
                         alt: data.name
                     }, void 0, false, {
                         fileName: "[project]/src/components/details/Details.tsx",
-                        lineNumber: 30,
+                        lineNumber: 28,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 29,
+                    lineNumber: 27,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1301,7 +1299,7 @@ function Details({ id }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 32,
+                    lineNumber: 30,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1312,7 +1310,7 @@ function Details({ id }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 33,
+                    lineNumber: 31,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1323,7 +1321,7 @@ function Details({ id }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 34,
+                    lineNumber: 32,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1334,7 +1332,7 @@ function Details({ id }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 35,
+                    lineNumber: 33,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1345,7 +1343,7 @@ function Details({ id }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 36,
+                    lineNumber: 34,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1356,7 +1354,7 @@ function Details({ id }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 37,
+                    lineNumber: 35,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1365,17 +1363,17 @@ function Details({ id }) {
                     children: "Close"
                 }, void 0, false, {
                     fileName: "[project]/src/components/details/Details.tsx",
-                    lineNumber: 38,
+                    lineNumber: 36,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/details/Details.tsx",
-            lineNumber: 27,
+            lineNumber: 25,
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$loader$2f$Loader$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
             fileName: "[project]/src/components/details/Details.tsx",
-            lineNumber: 43,
+            lineNumber: 41,
             columnNumber: 9
         }, this)
     }, void 0, false);
@@ -1460,7 +1458,8 @@ function Main() {
             columnNumber: 12
         }, this);
     }
-    const isDetails = Boolean(router.query.details);
+    const { details } = router.query;
+    const isDetails = Boolean(details);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
             className: "main",
@@ -1469,7 +1468,7 @@ function Main() {
                     handleSearch: handleSearch
                 }, void 0, false, {
                     fileName: "[project]/src/components/main/Main.tsx",
-                    lineNumber: 43,
+                    lineNumber: 44,
                     columnNumber: 10
                 }, this),
                 !isFetching ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1480,7 +1479,7 @@ function Main() {
                             response: data
                         }, void 0, false, {
                             fileName: "[project]/src/components/main/Main.tsx",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1490,32 +1489,32 @@ function Main() {
                                     peopleList: data?.results
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/main/Main.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 53,
                                     columnNumber: 15
                                 }, this),
                                 isDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$details$2f$Details$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Details"], {
                                     id: router.query.details
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/main/Main.tsx",
-                                    lineNumber: 53,
+                                    lineNumber: 54,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/main/Main.tsx",
-                            lineNumber: 51,
+                            lineNumber: 52,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$loader$2f$Loader$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                     fileName: "[project]/src/components/main/Main.tsx",
-                    lineNumber: 57,
+                    lineNumber: 58,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/main/Main.tsx",
-            lineNumber: 42,
+            lineNumber: 43,
             columnNumber: 7
         }, this)
     }, void 0, false);

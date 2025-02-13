@@ -34,8 +34,9 @@ export function Main() {
   if (isError) {
     return <p className="error">Error</p>;
   }
+  const { details } = router.query;
 
-  const isDetails = Boolean(router.query.details);
+  const isDetails = Boolean(details);
 
   return (
     <>

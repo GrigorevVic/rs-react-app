@@ -31,6 +31,7 @@
   font-size: 2rem;
   padding: 10px;
   color: var(--main-light);
+  text-align: center;
 }
 
 .wrapper-img {
