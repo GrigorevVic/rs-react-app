@@ -12,13 +12,17 @@ export const Pagination = ({
   response,
 }: PaginationProps) => {
   const { previous, next } = response as ApiResponse;
+  const prevPage = previous ? new URL(previous).searchParams.get('page') : null;
+  const nextPage = next ? new URL(next).searchParams.get('page') : null;
+
+  console.log(prevPage, nextPage);
 
   const handlePrevious = () => {
-    onPageChange(currentPage - 1);
+    onPageChange(Number(prevPage));
   };
 
   const handleNext = () => {
-    onPageChange(currentPage + 1);
+    onPageChange(Number(nextPage));
   };
   return (
     <div className="btn-container">

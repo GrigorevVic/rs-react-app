@@ -9,7 +9,7 @@ export const api = createApi({
     getCharacters: build.query({
       query: ({ page = 1, search }) => {
         const queryString = search
-          ? `search=${search}`
+          ? `search=${search}&page=${String(page)}`
           : `page=${String(page)}`;
         return `?${queryString}`;
       },

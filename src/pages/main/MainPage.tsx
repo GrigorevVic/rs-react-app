@@ -22,7 +22,7 @@ export function MainPage() {
 
   useEffect(() => {
     if (savedSearch) {
-      setSearchParams(`?search=${savedSearch}`);
+      setSearchParams(`?search=${savedSearch}&page=${currentPage}`);
     } else {
       setSearchParams(`?page=${currentPage}`);
     }
@@ -36,7 +36,7 @@ export function MainPage() {
     return <p className="error">Error</p>;
   }
   const isDetails = Boolean(searchParams.get('details'));
-
+  console.log(data);
   return (
     <>
       <Header />
