@@ -611,7 +611,7 @@ const api = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f4
     endpoints: (build)=>({
             getCharacters: build.query({
                 query: ({ page = 1, search })=>{
-                    const queryString = search ? `search=${search}` : `page=${String(page)}`;
+                    const queryString = search ? `search=${search}&page=${String(page)}` : `page=${String(page)}`;
                     return `?${queryString}`;
                 }
             }),

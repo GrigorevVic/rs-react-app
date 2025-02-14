@@ -1108,11 +1108,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx
 ;
 const Pagination = ({ currentPage, onPageChange, response })=>{
     const { previous, next } = response;
+    const prevPage = previous ? new URL(previous).searchParams.get('page') : null;
+    const nextPage = next ? new URL(next).searchParams.get('page') : null;
+    const pageCount = response ? Math.ceil(response?.count / 10) : '?';
     const handlePrevious = ()=>{
-        onPageChange(currentPage - 1);
+        onPageChange(Number(prevPage));
     };
     const handleNext = ()=>{
-        onPageChange(currentPage + 1);
+        onPageChange(Number(nextPage));
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "btn-container",
@@ -1124,17 +1127,19 @@ const Pagination = ({ currentPage, onPageChange, response })=>{
                 children: "Prev"
             }, void 0, false, {
                 fileName: "[project]/src/components/pagination/Pagination.tsx",
-                lineNumber: 26,
+                lineNumber: 29,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                 children: [
                     "Page: ",
-                    currentPage
+                    currentPage,
+                    " / ",
+                    pageCount
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/pagination/Pagination.tsx",
-                lineNumber: 29,
+                lineNumber: 32,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1144,13 +1149,13 @@ const Pagination = ({ currentPage, onPageChange, response })=>{
                 children: "Next"
             }, void 0, false, {
                 fileName: "[project]/src/components/pagination/Pagination.tsx",
-                lineNumber: 30,
+                lineNumber: 35,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/pagination/Pagination.tsx",
-        lineNumber: 25,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 };
@@ -1217,7 +1222,7 @@ const api = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f4
     endpoints: (build)=>({
             getCharacters: build.query({
                 query: ({ page = 1, search })=>{
-                    const queryString = search ? `search=${search}` : `page=${String(page)}`;
+                    const queryString = search ? `search=${search}&page=${String(page)}` : `page=${String(page)}`;
                     return `?${queryString}`;
                 }
             }),
