@@ -36,7 +36,7 @@ export function MainPage() {
     return <p className="error">Error</p>;
   }
   const isDetails = Boolean(searchParams.get('details'));
-  console.log(data);
+
   return (
     <>
       <Header />

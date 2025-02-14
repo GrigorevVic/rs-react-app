@@ -15,7 +15,7 @@ export const Pagination = ({
   const prevPage = previous ? new URL(previous).searchParams.get('page') : null;
   const nextPage = next ? new URL(next).searchParams.get('page') : null;
 
-  console.log(prevPage, nextPage);
+  const pageCount = response ? Math.ceil(response?.count / 10) : '?';
 
   const handlePrevious = () => {
     onPageChange(Number(prevPage));
@@ -29,7 +29,9 @@ export const Pagination = ({
       <button className="btn" onClick={handlePrevious} disabled={!previous}>
         Prev
       </button>
-      <span>Page: {currentPage}</span>
+      <span>
+        Page: {currentPage} / {pageCount}
+      </span>
       <button className="btn" onClick={handleNext} disabled={!next}>
         Next
       </button>

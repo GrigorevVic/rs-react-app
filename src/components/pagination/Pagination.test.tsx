@@ -96,6 +96,6 @@ describe('Pagination Component', () => {
 
     const nextButton = screen.getByText('Next');
     fireEvent.click(nextButton);
-    expect(screen.getByText('Page: 1')).toBeInTheDocument();
+    expect(screen.getByText('Page: 1 / 9')).toBeInTheDocument();
   });
 });
