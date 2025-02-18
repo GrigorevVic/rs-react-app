@@ -29,6 +29,7 @@ export function Main() {
 
   const handleSearch = (term: string) => {
     setSavedSearch(term);
+    setCurrentPage(1);
   };
 
   if (isError) {

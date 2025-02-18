@@ -1,28 +1,64 @@
 import '@testing-library/jest-dom';
-import { describe, expect, test } from 'vitest';
-import { render } from '@testing-library/react';
-import { MainPage } from './MainPage';
-import { MemoryRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from '../../store/store';
-import { ThemeProvider } from '../../contexts/ThemeContextProvider';
+import { render, screen } from '@testing-library/react';
+import { Main } from './Main';
+import { useGetCharactersQuery } from '../../api/api';
+import { vi, Mock } from 'vitest';
 
-describe('MainPage Component', () => {
-  test('render MainPage', () => {
-    try {
-      const { container } = render(
-        <ThemeProvider>
-          <Provider store={store}>
-            <MemoryRouter initialEntries={['?page=1']}>
-              <MainPage />
-            </MemoryRouter>
-          </Provider>
-        </ThemeProvider>
-      );
-      const element = container.querySelector('.main');
-      expect(element).toBeInTheDocument();
-    } catch (error) {
-      expect(error).toEqual(new Error('context error'));
-    }
+vi.mock('../../api/api', () => ({
+  useGetCharactersQuery: vi.fn(),
+}));
+
+vi.mock('next/router', () => ({
+  useRouter: () => ({
+    basePath: '',
+    pathname: '/',
+    route: '/',
+    query: {},
+    asPath: '/',
+    back: vi.fn(),
+    beforePopState: vi.fn(),
+    prefetch: vi.fn(),
+    push: vi.fn(),
+    reload: vi.fn(),
+    replace: vi.fn(),
+    events: {
+      on: vi.fn(),
+      off: vi.fn(),
+      emit: vi.fn(),
+    },
+    isFallback: false,
+    isLocaleDomain: false,
+    isReady: true,
+    defaultLocale: 'en',
+    domainLocales: [],
+    isPreview: false,
+    forward: vi.fn(),
+  }),
+}));
+
+describe('Main Component', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  test('should render the SearchForm', () => {
+    (useGetCharactersQuery as Mock).mockReturnValue({
+      data: null,
+      isFetching: true,
+    });
+    render(<Main />);
+
+    expect(screen.getByText('Search')).toBeInTheDocument();
+  });
+
+  test('should render Loader when fetching data', () => {
+    (useGetCharactersQuery as Mock).mockReturnValue({
+      data: null,
+      isFetching: true,
+    });
+
+    const { container } = render(<Main />);
+    const loader = container.querySelector('.loader');
+    expect(loader).toBeInTheDocument();
   });
 });

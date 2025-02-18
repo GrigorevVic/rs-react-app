@@ -8,7 +8,6 @@ interface SearchProps {
 
 export function SearchForm(props: SearchProps) {
   const [term, setTerm] = useState('');
-  const [hasError, setError] = useState({ hasError: false });
   const [, setSavedSearch] = useLocalStorage();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -22,14 +21,6 @@ export function SearchForm(props: SearchProps) {
     setTerm('');
   };
 
-  const getError = () => {
-    setError({ hasError: true });
-  };
-
-  if (hasError.hasError) {
-    throw new Error('An error has occurred');
-  }
-
   return (
     <form onSubmit={handleSubmit} className="search-form" name="form">
       <input
@@ -41,9 +32,6 @@ export function SearchForm(props: SearchProps) {
       />
       <button type="submit" className="btn">
         Search
-      </button>
-      <button type="submit" className="btn" onClick={getError}>
-        Error
       </button>
     </form>
   );

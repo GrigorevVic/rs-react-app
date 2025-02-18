@@ -11,6 +11,7 @@ export function Details({ id }: DetailsProps) {
   const { data, isFetching } = useGetCharacterByIdQuery({ id });
   const router = useRouter();
   const { query } = router;
+
   const closeDetails = () => {
     Reflect.deleteProperty(query, 'details');
     router.replace({

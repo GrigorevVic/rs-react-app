@@ -1,16 +1,11 @@
 import '@testing-library/jest-dom';
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { NotFoundPage } from './notFoundPage';
-import { MemoryRouter } from 'react-router-dom';
+import Page404 from './404';
 
 describe('404 component', () => {
   test('render 404', () => {
-    render(
-      <MemoryRouter>
-        <NotFoundPage />
-      </MemoryRouter>
-    );
+    render(<Page404 />);
     expect(screen.getByText('Page not found')).toBeInTheDocument();
   });
 });

@@ -496,9 +496,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStor
 ;
 function SearchForm(props) {
     const [term, setTerm] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])('');
-    const [hasError, setError] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])({
-        hasError: false
-    });
     const [, setSavedSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useLocalStorage$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["useLocalStorage"])();
     const handleChange = (event)=>{
         setTerm(event.target.value.trim());
@@ -509,14 +506,6 @@ function SearchForm(props) {
         setSavedSearch(term);
         setTerm('');
     };
-    const getError = ()=>{
-        setError({
-            hasError: true
-        });
-    };
-    if (hasError.hasError) {
-        throw new Error('An error has occurred');
-    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
         onSubmit: handleSubmit,
         className: "search-form",
@@ -530,7 +519,7 @@ function SearchForm(props) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-                lineNumber: 35,
+                lineNumber: 26,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -539,23 +528,13 @@ function SearchForm(props) {
                 children: "Search"
             }, void 0, false, {
                 fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-                lineNumber: 42,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                type: "submit",
-                className: "btn",
-                onClick: getError,
-                children: "Error"
-            }, void 0, false, {
-                fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-                lineNumber: 45,
+                lineNumber: 33,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/searchForm/SearchForm.tsx",
-        lineNumber: 34,
+        lineNumber: 25,
         columnNumber: 5
     }, this);
 }
@@ -1133,12 +1112,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$loader$
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$api$2f$api$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/api/api.ts [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$details$2f$Details$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/details/Details.tsx [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$errorBoundary$2f$ErrorBoundary$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/errorBoundary/ErrorBoundary.tsx [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$cardList$2f$CardList$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$api$2f$api$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$details$2f$Details$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__
 ]);
 ([__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$cardList$2f$CardList$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$api$2f$api$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$details$2f$Details$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__);
+;
 ;
 ;
 ;
@@ -1173,6 +1154,7 @@ function Main() {
     ]);
     const handleSearch = (term)=>{
         setSavedSearch(term);
+        setCurrentPage(1);
     };
     if (isError) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1180,7 +1162,7 @@ function Main() {
             children: "Error"
         }, void 0, false, {
             fileName: "[project]/src/components/main/Main.tsx",
-            lineNumber: 35,
+            lineNumber: 37,
             columnNumber: 12
         }, this);
     }
@@ -1190,12 +1172,18 @@ function Main() {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
             className: "main",
             children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$searchForm$2f$SearchForm$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SearchForm"], {
-                    handleSearch: handleSearch
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$errorBoundary$2f$ErrorBoundary$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ErrorBoundary"], {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$searchForm$2f$SearchForm$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SearchForm"], {
+                        handleSearch: handleSearch
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/main/Main.tsx",
+                        lineNumber: 47,
+                        columnNumber: 12
+                    }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/main/Main.tsx",
-                    lineNumber: 44,
-                    columnNumber: 10
+                    lineNumber: 46,
+                    columnNumber: 9
                 }, this),
                 !isFetching ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                     children: [
@@ -1205,7 +1193,7 @@ function Main() {
                             response: data
                         }, void 0, false, {
                             fileName: "[project]/src/components/main/Main.tsx",
-                            lineNumber: 47,
+                            lineNumber: 51,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1215,32 +1203,32 @@ function Main() {
                                     peopleList: data?.results
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/main/Main.tsx",
-                                    lineNumber: 53,
+                                    lineNumber: 57,
                                     columnNumber: 15
                                 }, this),
                                 isDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$details$2f$Details$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Details"], {
                                     id: router.query.details
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/main/Main.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 58,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/main/Main.tsx",
-                            lineNumber: 52,
+                            lineNumber: 56,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$loader$2f$Loader$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                     fileName: "[project]/src/components/main/Main.tsx",
-                    lineNumber: 58,
+                    lineNumber: 62,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/main/Main.tsx",
-            lineNumber: 43,
+            lineNumber: 45,
             columnNumber: 7
         }, this)
     }, void 0, false);

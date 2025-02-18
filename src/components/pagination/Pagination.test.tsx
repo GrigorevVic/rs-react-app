@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 import { describe, expect, test } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import { Pagination } from './Pagination';
 import { ApiResponse } from '../../types/types';
 
@@ -16,13 +15,11 @@ describe('Pagination Component', () => {
     };
 
     render(
-      <MemoryRouter>
-        <Pagination
-          currentPage={currentPage}
-          response={response}
-          onPageChange={() => {}}
-        />
-      </MemoryRouter>
+      <Pagination
+        currentPage={currentPage}
+        response={response}
+        onPageChange={() => {}}
+      />
     );
 
     expect(screen.getByText('Prev')).toBeInTheDocument();
@@ -39,13 +36,11 @@ describe('Pagination Component', () => {
     };
 
     render(
-      <MemoryRouter>
-        <Pagination
-          currentPage={currentPage}
-          response={response}
-          onPageChange={() => {}}
-        />
-      </MemoryRouter>
+      <Pagination
+        currentPage={currentPage}
+        response={response}
+        onPageChange={() => {}}
+      />
     );
 
     expect(screen.getByText('Prev')).toBeDisabled();
@@ -62,13 +57,11 @@ describe('Pagination Component', () => {
     };
 
     render(
-      <MemoryRouter>
-        <Pagination
-          currentPage={currentPage}
-          response={response}
-          onPageChange={() => {}}
-        />
-      </MemoryRouter>
+      <Pagination
+        currentPage={currentPage}
+        response={response}
+        onPageChange={() => {}}
+      />
     );
 
     expect(screen.getByText('Prev')).not.toBeDisabled();
@@ -85,17 +78,15 @@ describe('Pagination Component', () => {
     };
 
     render(
-      <MemoryRouter>
-        <Pagination
-          currentPage={currentPage}
-          response={response}
-          onPageChange={() => {}}
-        />
-      </MemoryRouter>
+      <Pagination
+        currentPage={currentPage}
+        response={response}
+        onPageChange={() => {}}
+      />
     );
 
     const nextButton = screen.getByText('Next');
     fireEvent.click(nextButton);
-    expect(screen.getByText('Page: 1')).toBeInTheDocument();
+    expect(screen.getByText('Page: 1 / 9')).toBeInTheDocument();
   });
 });
