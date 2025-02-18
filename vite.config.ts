@@ -16,6 +16,7 @@ export default defineConfig({
         '**/types.ts',
         '**/types/*',
         'src/config/**/*',
+        'src/pages/index.tsx',
       ],
       extension: ['.tsx'],
       include: ['src/**/*'],
