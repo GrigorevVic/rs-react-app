@@ -11,7 +11,8 @@
     "static/chunks/node_modules_react-dom_f14d04._.js",
     "static/chunks/node_modules_@reduxjs_toolkit_dist_8ef84d._.js",
     "static/chunks/node_modules_7739a4._.js",
-    "static/chunks/[root of the server]__ec7d81._.js"
+    "static/chunks/[root of the server]__ec7d81._.js",
+    "static/chunks/src_pages_styles_26b36e.css"
   ],
   "source": "entry"
 });

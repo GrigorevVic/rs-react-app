@@ -8,8 +8,9 @@
       "static/chunks/node_modules_@reduxjs_toolkit_dist_8ef84d._.js",
       "static/chunks/node_modules_7739a4._.js",
       "static/chunks/[root of the server]__ec7d81._.js",
+      "static/chunks/src_pages_styles_26b36e.css",
       "static/chunks/src_pages__app_5771e1._.js",
-      "static/chunks/src_pages__app_74ad06._.js"
+      "static/chunks/src_pages__app_94dcd7._.js"
     ],
     "/": [
       "static/chunks/node_modules_next_0f88d9._.js",
@@ -18,10 +19,21 @@
       "static/chunks/node_modules_react-dom_f14d04._.js",
       "static/chunks/node_modules_@reduxjs_toolkit_dist_8ef84d._.js",
       "static/chunks/node_modules_7739a4._.js",
-      "static/chunks/[root of the server]__ceb4f0._.js",
-      "static/chunks/src_5e6f3a._.css",
+      "static/chunks/[root of the server]__55fa96._.js",
+      "static/chunks/src_components_0c4c0b._.css",
       "static/chunks/src_pages_index_5771e1._.js",
-      "static/chunks/src_pages_index_458086._.js"
+      "static/chunks/src_pages_index_47d2f9._.js"
+    ],
+    "/404": [
+      "static/chunks/node_modules_next_f80f03._.js",
+      "static/chunks/node_modules_react_1cad9b._.js",
+      "static/chunks/node_modules_react-dom_cjs_react-dom_development_ab7e07.js",
+      "static/chunks/node_modules_react-dom_f14d04._.js",
+      "static/chunks/node_modules_69e050._.js",
+      "static/chunks/[root of the server]__d2b94d._.js",
+      "static/chunks/src_components_5a9c4b._.css",
+      "static/chunks/src_pages_404_5771e1._.js",
+      "static/chunks/src_pages_404_9dbf0d._.js"
     ]
   },
   "devFiles": [],
