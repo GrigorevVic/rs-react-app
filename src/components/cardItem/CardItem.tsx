@@ -35,7 +35,7 @@ export function CardItem(props: PeopleItem) {
     }
   };
 
-  const params = new URLSearchParams(searchParams.toString());
+  const params = new URLSearchParams(searchParams);
   const page = params.get('page');
   const search = params.get('search') ? `search=${params.get('search')}&` : '';
   const href = `?${search}page=${page}&details=${id}`;

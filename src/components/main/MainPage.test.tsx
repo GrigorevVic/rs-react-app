@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import { Main } from './Main';
 import { useGetCharactersQuery } from '../../api/api';
 import { vi, Mock } from 'vitest';
@@ -8,7 +9,7 @@ vi.mock('../../api/api', () => ({
   useGetCharactersQuery: vi.fn(),
 }));
 
-vi.mock('next/router', () => ({
+vi.mock('next/navigation', () => ({
   useRouter: () => ({
     basePath: '',
     pathname: '/',
@@ -34,6 +35,10 @@ vi.mock('next/router', () => ({
     isPreview: false,
     forward: vi.fn(),
   }),
+  useSearchParams: vi.fn(() => {
+    const searchParams = new URLSearchParams({});
+    return searchParams;
+  }),
 }));
 
 describe('Main Component', () => {
@@ -46,7 +51,11 @@ describe('Main Component', () => {
       data: null,
       isFetching: true,
     });
-    render(<Main />);
+    render(
+      <MemoryRouterProvider>
+        <Main />
+      </MemoryRouterProvider>
+    );
 
     expect(screen.getByText('Search')).toBeInTheDocument();
   });
@@ -57,7 +66,11 @@ describe('Main Component', () => {
       isFetching: true,
     });
 
-    const { container } = render(<Main />);
+    const { container } = render(
+      <MemoryRouterProvider>
+        <Main />
+      </MemoryRouterProvider>
+    );
     const loader = container.querySelector('.loader');
     expect(loader).toBeInTheDocument();
   });

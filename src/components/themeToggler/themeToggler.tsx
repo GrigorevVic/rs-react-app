@@ -1,3 +1,5 @@
+'use client';
+
 import './styles.css';
 import { useTheme } from '../../hooks/useTheme';
 

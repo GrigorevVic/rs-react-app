@@ -4,16 +4,21 @@ import { render, screen } from '@testing-library/react';
 import { Details } from './Details';
 import { mockedCharacters } from '../../test/mocks';
 import { useGetCharacterByIdQuery } from '../../api/api';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 vi.mock('../../api/api', () => ({
   useGetCharacterByIdQuery: vi.fn(),
 }));
 
-vi.mock('next/router', () => ({
+vi.mock('next/navigation', () => ({
   useRouter: () => ({
     query: {},
-    replace: vi.fn(),
+    push: vi.fn(),
     pathname: '/mock-pathname',
+  }),
+  useSearchParams: vi.fn(() => {
+    const searchParams = new URLSearchParams({});
+    return searchParams;
   }),
 }));
 
@@ -28,7 +33,11 @@ describe('Details Component', () => {
       isFetching: true,
     });
 
-    const { container } = render(<Details id="1" />);
+    const { container } = render(
+      <MemoryRouterProvider>
+        <Details id="1" />
+      </MemoryRouterProvider>
+    );
     const loader = container.querySelector('.loader');
     expect(loader).toBeInTheDocument();
   });
@@ -39,7 +48,11 @@ describe('Details Component', () => {
       isFetching: false,
     });
 
-    render(<Details id="1" />);
+    render(
+      <MemoryRouterProvider>
+        <Details id="1" />
+      </MemoryRouterProvider>
+    );
     expect(screen.getByText('Luke Skywalker')).toBeInTheDocument();
   });
 });

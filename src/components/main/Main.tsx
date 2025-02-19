@@ -33,7 +33,6 @@ export function Main() {
 
   const params = new URLSearchParams(searchParams.toString());
   const details = params.get('details');
-  console.log(details);
 
   if (isError) {
     return <p className="error">Error</p>;
