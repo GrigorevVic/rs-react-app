@@ -1,7 +1,9 @@
+'use client';
+
 import './styles.css';
 import { useGetCharacterByIdQuery } from '../../api/api';
 import { Loader } from '../loader/Loader';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface DetailsProps {
   id: string | undefined | string[];
@@ -10,14 +12,15 @@ interface DetailsProps {
 export function Details({ id }: DetailsProps) {
   const { data, isFetching } = useGetCharacterByIdQuery({ id });
   const router = useRouter();
-  const { query } = router;
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
 
   const closeDetails = () => {
-    Reflect.deleteProperty(query, 'details');
-    router.replace({
-      pathname: router.pathname,
-      query,
-    });
+    const page = params.get('page');
+    const search = params.get('search')
+      ? `search=${params.get('search')}&`
+      : '';
+    router.push(`/?${search}page=${page}`, { scroll: false });
   };
 
   return (

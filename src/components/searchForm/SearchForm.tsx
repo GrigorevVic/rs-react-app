@@ -1,3 +1,5 @@
+'use client';
+
 import './styles.css';
 import { useState } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';

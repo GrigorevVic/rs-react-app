@@ -1,7 +1,6 @@
 import './styles.css';
 import { People } from '../../types/types';
 import { getIdFromUrl } from '../../utils/utils';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -10,12 +9,13 @@ import {
   selectById,
 } from '../../store/selectedCharSlice';
 import type { RootState } from '../../store/store';
+import { useSearchParams } from 'next/navigation';
 
 interface PeopleItem {
   people: People;
 }
 export function CardItem(props: PeopleItem) {
-  const router = useRouter();
+  const searchParams = useSearchParams();
   const { people } = props;
   const dispatch = useDispatch();
 
@@ -35,9 +35,14 @@ export function CardItem(props: PeopleItem) {
     }
   };
 
+  const params = new URLSearchParams(searchParams.toString());
+  const page = params.get('page');
+  const search = params.get('search') ? `search=${params.get('search')}&` : '';
+  const href = `?${search}page=${page}&details=${id}`;
+
   return (
     <li className="card-container" key={people.name}>
-      <Link href={{ query: { ...router.query, details: id } }}>
+      <Link href={href}>
         <div className="wrapper-img">
           <img className="card-img" src={`/${id}.jpg`} alt={people.name} />
         </div>

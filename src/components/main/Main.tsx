@@ -1,3 +1,5 @@
+'use client';
+
 import { SearchForm } from '../searchForm/SearchForm';
 import { CardList } from '../cardList/CardList';
 import { useState, useEffect } from 'react';
@@ -5,10 +7,11 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { Pagination } from '../pagination/Pagination';
 import { Loader } from '../loader/Loader';
 import { useGetCharactersQuery } from '../../api/api';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Details } from '../details/Details';
 
 export function Main() {
+  const searchParams = useSearchParams();
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [savedSearch, setSavedSearch] = useLocalStorage();
@@ -18,13 +21,9 @@ export function Main() {
   });
 
   useEffect(() => {
-    const queryString = savedSearch
-      ? { search: savedSearch }
-      : { page: currentPage };
-    router.replace({
-      pathname: router.pathname,
-      query: queryString,
-    });
+    const search = savedSearch ? `search=${savedSearch}&` : '';
+    const page = `page=${currentPage}`;
+    router.push(`/?${search}${page}`, { scroll: false });
   }, [savedSearch, currentPage]);
 
   const handleSearch = (term: string) => {
@@ -32,12 +31,13 @@ export function Main() {
     setCurrentPage(1);
   };
 
+  const params = new URLSearchParams(searchParams.toString());
+  const details = params.get('details');
+  console.log(details);
+
   if (isError) {
     return <p className="error">Error</p>;
   }
-  const { details } = router.query;
-
-  const isDetails = Boolean(details);
 
   return (
     <>
@@ -52,7 +52,7 @@ export function Main() {
             />
             <div className="wrapper">
               <CardList peopleList={data?.results} />
-              {isDetails && <Details id={router.query.details} />}
+              {details && <Details id={details} />}
             </div>
           </>
         ) : (
