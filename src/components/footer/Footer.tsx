@@ -1,8 +1,8 @@
-import './styles.css';
+import styles from './Footer.module.css';
 
 export function Footer() {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <a
         href="https://github.com/GrigorevVic"
         target="_blank"

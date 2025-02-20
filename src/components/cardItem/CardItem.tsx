@@ -1,4 +1,4 @@
-import './styles.css';
+import styles from './CardItem.module.css';
 import { People } from '../../types/types';
 import { getIdFromUrl } from '../../utils/utils';
 import { useRouter } from 'next/router';
@@ -36,16 +36,20 @@ export function CardItem(props: PeopleItem) {
   };
 
   return (
-    <li className="card-container" key={people.name}>
+    <li className={styles['card-container']} key={people.name}>
       <Link href={{ query: { ...router.query, details: id } }}>
-        <div className="wrapper-img">
-          <img className="card-img" src={`/${id}.jpg`} alt={people.name} />
+        <div className={styles['wrapper-img']}>
+          <img
+            className={styles['card-img']}
+            src={`/${id}.jpg`}
+            alt={people.name}
+          />
         </div>
-        <p className="name">{people.name}</p>
+        <p className={styles.name}>{people.name}</p>
       </Link>
       <input
         type="checkbox"
-        className="checkbox"
+        className={styles.checkbox}
         checked={isSelectedPeople}
         onChange={handleCheckboxChange}
       />

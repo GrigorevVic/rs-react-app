@@ -1,4 +1,4 @@
-import './styles.css';
+import styles from './Details.module.css';
 import { useGetCharacterByIdQuery } from '../../api/api';
 import { Loader } from '../loader/Loader';
 import { useRouter } from 'next/router';
@@ -23,10 +23,14 @@ export function Details({ id }: DetailsProps) {
   return (
     <>
       {!isFetching ? (
-        <div className="card-details">
+        <div className={styles['card-details']}>
           <h2 className="name">{data.name}</h2>
-          <div className="wrapper-img-details">
-            <img className="img-details" src={`/${id}.jpg`} alt={data.name} />
+          <div className={styles['wrapper-img-details']}>
+            <img
+              className={styles['img-details']}
+              src={`/${id}.jpg`}
+              alt={data.name}
+            />
           </div>
           <p className="height">Height: {data.height}</p>
           <p className="mass">Mass: {data.mass}</p>

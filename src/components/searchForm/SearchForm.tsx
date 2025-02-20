@@ -1,4 +1,4 @@
-import './styles.css';
+import styles from './Search.module.css';
 import { useState } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
@@ -22,9 +22,9 @@ export function SearchForm(props: SearchProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-form" name="form">
+    <form onSubmit={handleSubmit} className={styles['search-form']} name="form">
       <input
-        className="search-input"
+        className={styles['search-input']}
         type="text"
         placeholder="Enter a character name..."
         value={term}

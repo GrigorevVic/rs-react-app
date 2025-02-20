@@ -1,4 +1,3 @@
-import './styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { unselectAll } from '../../store/selectedCharSlice';

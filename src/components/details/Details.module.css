@@ -1,9 +1,3 @@
-.wrapper-card-details {
-  height: 600px;
-  width: 300px;
-  background: rgb(223, 213, 213);
-}
-
 .card-details {
   position: sticky;
   top: 100px;
