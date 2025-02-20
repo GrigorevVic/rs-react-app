@@ -19,13 +19,13 @@ export function Main() {
 
   useEffect(() => {
     const queryString = savedSearch
-      ? { search: savedSearch }
+      ? { search: savedSearch, page: currentPage }
       : { page: currentPage };
     router.replace({
       pathname: router.pathname,
       query: queryString,
     });
-  }, [savedSearch, currentPage]);
+  }, [savedSearch, currentPage, isFetching]);
 
   const handleSearch = (term: string) => {
     setSavedSearch(term);

@@ -1416,7 +1416,8 @@ function Main() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Main.useEffect": ()=>{
             const queryString = savedSearch ? {
-                search: savedSearch
+                search: savedSearch,
+                page: currentPage
             } : {
                 page: currentPage
             };
@@ -1427,7 +1428,8 @@ function Main() {
         }
     }["Main.useEffect"], [
         savedSearch,
-        currentPage
+        currentPage,
+        isFetching
     ]);
     const handleSearch = (term)=>{
         setSavedSearch(term);
