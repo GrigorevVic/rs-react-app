@@ -57,8 +57,8 @@ describe('Main Component', () => {
       isFetching: true,
     });
 
-    const { container } = render(<Main />);
-    const loader = container.querySelector('.loader');
+    render(<Main />);
+    const loader = document.getElementById('loader');
     expect(loader).toBeInTheDocument();
   });
 });

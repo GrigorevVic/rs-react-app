@@ -28,8 +28,8 @@ describe('Details Component', () => {
       isFetching: true,
     });
 
-    const { container } = render(<Details id="1" />);
-    const loader = container.querySelector('.loader');
+    render(<Details id="1" />);
+    const loader = document.getElementById('loader');
     expect(loader).toBeInTheDocument();
   });
 

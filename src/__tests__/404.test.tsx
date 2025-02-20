@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Page404 from './404';
+import Page404 from '../pages/404';
 
 describe('404 component', () => {
   test('render 404', () => {
