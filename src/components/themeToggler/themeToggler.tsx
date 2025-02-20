@@ -1,4 +1,3 @@
-import styles from './Toggler.module.css';
 import { useTheme } from '../../hooks/useTheme';
 
 export const ThemeToggler = () => {
@@ -9,8 +8,8 @@ export const ThemeToggler = () => {
   };
 
   return (
-    <div className={styles['theme-button']}>
-      <button className={styles.toggler} onClick={handlerThemeToggler}></button>
+    <div className="theme-button">
+      <button className="toggler" onClick={handlerThemeToggler}></button>
     </div>
   );
 };
