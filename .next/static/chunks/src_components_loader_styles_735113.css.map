@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/components/loader/styles.css"],"sourcesContent":[".loader-container,\n.no-results {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  color: white;\n  font-size: 3rem;\n}\n\n.loader {\n  width: 100px;\n  aspect-ratio: 1;\n  display: grid;\n  border-radius: 50%;\n  background:\n    linear-gradient(\n        0deg,\n        rgba(236, 232, 232, 0.5) 30%,\n        #9b040400 0 70%,\n        rgb(128, 136, 129) 0\n      )\n      50%/8% 100%,\n    linear-gradient(\n        90deg,\n        rgba(129, 124, 124, 0.25) 30%,\n        #b9090900 0 70%,\n        rgba(117, 108, 108, 0.75) 0\n      )\n      50%/100% 8%;\n  background-repeat: no-repeat;\n  animation: l23 1s infinite steps(12);\n}\n.loader::before,\n.loader::after {\n  content: '';\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: inherit;\n  opacity: 0.915;\n  transform: rotate(30deg);\n}\n.loader::after {\n  opacity: 0.83;\n  transform: rotate(60deg);\n}\n@keyframes l23 {\n  100% {\n    transform: rotate(1turn);\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AAUA;;;;;;;;;;AAuBA;;;;;;;;;AASA;;;;;AAIA"}},
-    {"offset": {"line": 39, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
