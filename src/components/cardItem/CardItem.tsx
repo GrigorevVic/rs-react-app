@@ -1,6 +1,6 @@
 import './styles.css';
 import { People } from '../../types/types';
-import { getIdFromUrl } from '../../utils/utils';
+//import { getIdFromUrl } from '../../utils/utils';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -17,13 +17,16 @@ interface PeopleItem {
 export function CardItem(props: PeopleItem) {
   const searchParams = useSearchParams();
   const { people } = props;
+  console.log(people.image);
   const dispatch = useDispatch();
 
   const isSelectedPeople = Boolean(
     useSelector((state: RootState) => selectById(state, people.name))
   );
 
-  const id = getIdFromUrl(people.url);
+  //const id = getIdFromUrl(people.url);
+  const id = '1';
+  console.log(people);
 
   const handleCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -44,7 +47,11 @@ export function CardItem(props: PeopleItem) {
     <li className="card-container" key={people.name}>
       <Link href={href}>
         <div className="wrapper-img">
-          <img className="card-img" src={`/${id}.jpg`} alt={people.name} />
+          <img
+            className="card-img"
+            src={`/${people.image}`}
+            alt={people.name}
+          />
         </div>
         <p className="name">{people.name}</p>
       </Link>

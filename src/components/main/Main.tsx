@@ -50,7 +50,7 @@ export function Main() {
               response={data}
             />
             <div className="wrapper">
-              <CardList peopleList={data?.results} />
+              <CardList peopleList={data} />
               {details && <Details id={details} />}
             </div>
           </>

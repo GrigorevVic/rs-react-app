@@ -8,6 +8,7 @@ export interface People {
   eye_color: string;
   url: string;
   hair_color: string;
+  image: string;
 }
 
 export interface ApiResponse {
