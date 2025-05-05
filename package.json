@@ -13,10 +13,6 @@
     "format:fix": "prettier --write .",
     "test": "vitest run --coverage"
   },
-  "lint-staged": {
-    "*.{html, css}": "prettier --write .",
-    "*.{ts,tsx}": "eslint --report-unused-disable-directives"
-  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "next": "^15.1.7",
